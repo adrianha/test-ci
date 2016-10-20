@@ -1,7 +1,18 @@
 #!/bin/sh
-	echo $PWD
-	git status
-	git pull
+	echo "Starting Deployment - TIME_GOES_HERE"
+	echo "-- Removing git files --"
+	rm -rf .git
+	echo "-- Initiating git configuration --"
+	git init
+	git config --global user.name "Jenkins Robot"
+	git config --global user.email "jenkins@swash.id"
+	echo "-- Adding dokku remote URL --"
+	git remote add dokku dokku@139.162.40.25:test-ci
+	echo "-- Adding all items to the repository --"
+	git add .
+	git commit -m "Deploying #COMMIT_ID_GOES_HERE"
+	echo "-- Pushing to dokku --"
 	git push dokku
+	echo "Deployment finished - TIME_GOES_HERE"
 	exit
 EOF
