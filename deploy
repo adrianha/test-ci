@@ -1,7 +1,6 @@
--#!/bin/sh
-	cd /var/www/test-ci/
+#!/bin/sh
+	echo $PWD
 	git pull
-	npm install
-	NODE_ENV=production NODE_NAME=ifrit forever start -c "node --nouse-idle-notification" app.js
+	git push dokku
 	exit
 EOF
