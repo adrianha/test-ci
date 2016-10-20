@@ -12,7 +12,7 @@
 	git add .
 	git commit -m "Deploying #COMMIT_ID_GOES_HERE"
 	echo "-- Pushing to dokku --"
-	git push dokku
+	git push dokku master -f
 	echo "Deployment finished - TIME_GOES_HERE"
 	exit
 EOF
