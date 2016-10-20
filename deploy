@@ -1,5 +1,6 @@
 #!/bin/sh
 	echo $PWD
+	git status
 	git pull
 	git push dokku
 	exit
